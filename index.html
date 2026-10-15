@@ -1,0 +1,936 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Juicy Kabob | Afghan Kabob in West Hills &amp; Las Vegas</title>
+<meta name="description" content="Afghan kabob off the open grill. Chopan, chicken and kofta kabob, Kabuli palaw and fresh naan at 6609 Fallbrook Ave, West Hills, CA and 840 S Rancho Dr, Las Vegas.">
+<meta name="theme-color" content="#0c1440">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Juicy Kabob">
+<meta property="og:description" content="Afghan kabob off the open grill in West Hills, LA and Las Vegas.">
+<meta property="og:image" content="images/grill-smoke.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='9' fill='%230c1440'/%3E%3Cpath d='M7 33 33 7' stroke='%23b8c0e6' stroke-width='2.4' stroke-linecap='round'/%3E%3Crect x='10' y='22' width='8' height='8' rx='2' transform='rotate(45 14 26)' fill='%23f7b519'/%3E%3Crect x='16' y='16' width='8' height='8' rx='2' transform='rotate(45 20 20)' fill='%23d62a45'/%3E%3Crect x='22' y='10' width='8' height='8' rx='2' transform='rotate(45 26 14)' fill='%23f7b519'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:wght@400..700&family=Lalezar&family=Vazirmatn:wght@400;600&display=swap">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Restaurant",
+      "name": "Juicy Kabob West Hills",
+      "servesCuisine": ["Afghan", "Kabob"],
+      "telephone": "+1-702-302-6493",
+      "image": "images/grill-smoke.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "6609 Fallbrook Ave",
+        "addressLocality": "West Hills",
+        "addressRegion": "CA",
+        "postalCode": "91307",
+        "addressCountry": "US"
+      },
+      "sameAs": ["https://www.tiktok.com/@juicykabob__"]
+    },
+    {
+      "@type": "Restaurant",
+      "name": "Juicy Kabob Las Vegas",
+      "servesCuisine": ["Afghan", "Kabob"],
+      "telephone": "+1-702-675-6283",
+      "image": "images/grill-smoke.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "840 S Rancho Dr, Suite 6",
+        "addressLocality": "Las Vegas",
+        "addressRegion": "NV",
+        "addressCountry": "US"
+      },
+      "sameAs": ["https://www.tiktok.com/@juicykabob__"]
+    }
+  ]
+}
+</script>
+
+<style>
+/* Layout: a street signboard. Lapis night ground, saffron lettering, truck-art zigzag bands
+   stitching dark sections to paper ones. Mobile gets a thumb-reach action bar. */
+:root {
+  --night: #0c1440;
+  --night-2: #121c52;
+  --lapis: #1c3392;
+  --saffron: #f7b519;
+  --pom: #d62a45;
+  --paper: #f6f0e4;
+  --ink: #111a42;
+  --mist: #b8c0e6;
+  --ink-soft: #4a5175;
+  --line-dark: rgba(184, 192, 230, .18);
+  --line-paper: rgba(17, 26, 66, .14);
+
+  --f-display: "Bricolage Grotesque", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --f-fa-display: "Lalezar", "Vazirmatn", Tahoma, sans-serif;
+  --f-fa: "Vazirmatn", Tahoma, sans-serif;
+
+  --gutter-l: max(20px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(20px, env(safe-area-inset-right, 0px));
+  --radius: 14px;
+  --bar-h: 0px;
+
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--night);
+  color: var(--paper);
+  font-family: var(--f-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  padding-bottom: var(--bar-h);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+p { margin: 0; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 3px solid var(--saffron); outline-offset: 3px; border-radius: 6px; }
+[lang="fa"] { font-family: var(--f-fa); }
+
+.wrap {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-left: var(--gutter-l);
+  padding-right: var(--gutter-r);
+}
+.skip {
+  position: absolute; left: 12px; top: -60px; z-index: 100;
+  background: var(--saffron); color: var(--ink); padding: 10px 14px; border-radius: 8px; font-weight: 700;
+}
+.skip:focus { top: calc(12px + env(safe-area-inset-top, 0px)); }
+.icon { width: 1.15em; height: 1.15em; flex: none; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .55em;
+  min-height: 48px; padding: 0 1.25em;
+  border-radius: 999px; border: 2px solid transparent;
+  font: 700 1rem/1 var(--f-body); letter-spacing: .01em;
+  text-decoration: none; cursor: pointer;
+  transition: transform .15s ease, background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+.btn:active { transform: scale(.97); }
+.btn-primary { background: var(--saffron); color: var(--ink); }
+.btn-primary:hover { background: #ffc63d; }
+.btn-ghost { border-color: var(--line-dark); color: var(--paper); background: transparent; }
+.btn-ghost:hover { border-color: var(--paper); }
+.btn-ink { background: var(--ink); color: var(--saffron); }
+.btn-ink:hover { background: var(--lapis); }
+.btn-outline { border-color: var(--ink); color: var(--ink); background: transparent; }
+.btn-outline:hover { background: var(--ink); color: var(--paper); }
+.btn-text { background: transparent; color: var(--ink); padding-inline: .6em; text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1.5px; }
+.btn-text:hover { color: var(--pom); }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50;
+  background: rgba(12, 20, 64, .86);
+  backdrop-filter: saturate(1.4) blur(14px);
+  -webkit-backdrop-filter: saturate(1.4) blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s ease;
+}
+.site-header.is-scrolled { border-bottom-color: var(--line-dark); }
+.header-inner { display: flex; align-items: center; gap: 20px; min-height: 68px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; margin-right: auto; }
+.brand svg { width: 34px; height: 34px; }
+.brand-word { font: 800 1.35rem/1 var(--f-display); font-stretch: 80%; letter-spacing: -.01em; text-transform: uppercase; }
+.brand-word b { color: var(--saffron); font-weight: inherit; }
+.nav { display: flex; gap: 4px; }
+.nav a { text-decoration: none; padding: 8px 12px; border-radius: 999px; font-weight: 600; font-size: .95rem; color: var(--mist); }
+.nav a:hover { color: var(--paper); background: rgba(255, 255, 255, .06); }
+
+.loc-switch {
+  display: inline-flex; padding: 4px; gap: 2px;
+  background: rgba(255, 255, 255, .06); border: 1px solid var(--line-dark); border-radius: 999px;
+}
+.loc-switch button {
+  appearance: none; border: 0; cursor: pointer;
+  min-height: 36px; padding: 0 14px; border-radius: 999px;
+  background: transparent; color: var(--mist);
+  font: 600 .9rem/1 var(--f-body);
+  transition: background-color .2s ease, color .2s ease;
+}
+.loc-switch button[aria-pressed="true"] { background: var(--paper); color: var(--ink); }
+.loc-switch .short { display: none; }
+.header-call { min-height: 44px; }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative; overflow: hidden; isolation: isolate;
+  background:
+    radial-gradient(60% 55% at 78% 105%, rgba(214, 42, 69, .38), transparent 70%),
+    radial-gradient(40% 40% at 70% 95%, rgba(247, 181, 25, .22), transparent 70%),
+    var(--night);
+}
+.embers { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+.hero-grid {
+  display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
+  align-items: center; gap: 48px;
+  padding-block: 56px 72px;
+}
+.hero-copy { min-width: 0; display: grid; gap: 22px; justify-items: start; }
+.eyebrow {
+  font: 700 .78rem/1.3 var(--f-body); letter-spacing: .14em; text-transform: uppercase; color: var(--saffron);
+}
+.hero-title {
+  font-family: var(--f-display); font-weight: 800; font-stretch: 75%;
+  font-size: clamp(5.2rem, 30vw, 10.5rem); line-height: .82; letter-spacing: -.025em;
+  text-transform: uppercase; display: grid;
+}
+.hero-title .t-juicy { color: var(--saffron); }
+.hero-title .t-kabob { color: var(--paper); }
+.hero-fa { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.hero-fa [lang="fa"] { font-family: var(--f-fa-display); font-size: clamp(2rem, 6vw, 2.8rem); line-height: 1.1; color: var(--paper); }
+.hero-fa .gloss { color: var(--mist); font-size: .95rem; }
+.lead { max-width: 34ch; font-size: clamp(1.1rem, 2.2vw, 1.3rem); line-height: 1.5; color: #dfe3f6; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.proof {
+  display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  text-decoration: none; color: var(--mist); font-size: .95rem;
+  padding: 8px 14px 8px 8px; border-radius: 999px; border: 1px solid var(--line-dark);
+  font-variant-numeric: tabular-nums;
+}
+.proof:hover { border-color: var(--mist); color: var(--paper); }
+.proof strong { color: var(--paper); font-weight: 700; }
+.proof .tt { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--paper); color: var(--ink); }
+.proof .sep { width: 4px; height: 4px; border-radius: 50%; background: var(--mist); opacity: .6; }
+
+.hero-photos { position: relative; width: 100%; max-width: 540px; aspect-ratio: 1 / 1.02; justify-self: center; }
+.ph {
+  position: absolute; margin: 0;
+  background: var(--paper); padding: 7px; border-radius: 10px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .45);
+  transform: rotate(var(--r));
+  animation: settle .9s cubic-bezier(.2, .8, .2, 1) both;
+  animation-delay: var(--d, 0s);
+}
+.ph img { width: 100%; height: auto; border-radius: 5px; }
+.ph-main { --r: -2deg; --d: .05s; left: 22%; top: 2%; width: 56%; z-index: 2; }
+.ph-a { --r: -9deg; --d: .2s; left: 0; top: 40%; width: 38%; z-index: 3; }
+.ph-b { --r: 7deg; --d: .32s; right: 0; top: 30%; width: 38%; z-index: 1; }
+.sticker {
+  position: absolute; z-index: 4; left: 40%; bottom: 3%;
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 6px 16px 6px 6px; border-radius: 999px;
+  background: var(--saffron); color: var(--ink); text-decoration: none;
+  font: 800 1rem/1 var(--f-display); font-stretch: 85%;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .4);
+  transform: rotate(-4deg);
+  animation: settle .9s cubic-bezier(.2, .8, .2, 1) .45s both;
+  --r: -4deg;
+}
+.sticker img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid var(--ink); }
+.sticker:hover { background: #ffc63d; }
+@keyframes settle {
+  from { opacity: 0; transform: translateY(28px) rotate(calc(var(--r) * 2.2)); }
+  to { opacity: 1; transform: rotate(var(--r)); }
+}
+
+/* ---------- Truck-art band ---------- */
+.band {
+  height: 30px;
+  background:
+    conic-gradient(from -45deg at 50% 100%, var(--saffron) 90deg, transparent 0) 0 0 / 30px 15px repeat-x,
+    conic-gradient(from 135deg at 50% 0, var(--pom) 90deg, transparent 0) 15px 15px / 30px 15px repeat-x,
+    radial-gradient(circle, var(--paper) 2px, transparent 2.5px) 0 15px / 30px 15px repeat-x,
+    var(--lapis);
+}
+
+/* ---------- Sections ---------- */
+.section { padding-block: clamp(64px, 9vw, 112px); }
+.section-paper { background: var(--paper); color: var(--ink); }
+.section-paper .eyebrow { color: var(--pom); }
+.section-lapis { background: var(--lapis); }
+.section-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 20px 40px; margin-bottom: 36px; }
+.section-head > div { display: grid; gap: 10px; min-width: 0; }
+.h2 {
+  font-family: var(--f-display); font-weight: 800; font-stretch: 78%;
+  font-size: clamp(2.8rem, 7vw, 5rem); line-height: .9; letter-spacing: -.02em; text-transform: uppercase;
+  display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 18px;
+}
+.h2 [lang="fa"] { font-family: var(--f-fa-display); font-size: .6em; text-transform: none; letter-spacing: 0; color: var(--pom); font-weight: 400; }
+.section-dark .h2 [lang="fa"], .section-lapis .h2 [lang="fa"] { color: var(--saffron); }
+.section-note { max-width: 36ch; color: var(--ink-soft); }
+
+/* ---------- Menu ---------- */
+.chips { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 28px; scrollbar-width: none; }
+.chips::-webkit-scrollbar { display: none; }
+.chip {
+  appearance: none; flex: none; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 8px;
+  min-height: 44px; padding: 0 18px; border-radius: 999px;
+  border: 1.5px solid var(--line-paper); background: transparent; color: var(--ink);
+  font: 600 .95rem/1 var(--f-body);
+  transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+.chip:hover { border-color: var(--ink); }
+.chip .n { font-size: .78rem; font-variant-numeric: tabular-nums; color: var(--ink-soft); }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.chip[aria-pressed="true"] .n { color: var(--saffron); }
+
+.menu-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 56px; }
+.dish { padding: 22px 0; border-top: 1.5px solid var(--line-paper); display: grid; gap: 8px; min-width: 0; }
+.dish-top { display: flex; align-items: baseline; gap: 12px; }
+.dish h3 { font: 800 1.55rem/1.1 var(--f-display); font-stretch: 85%; letter-spacing: -.01em; }
+.dish .leader { flex: 1; min-width: 24px; border-bottom: 2px dotted rgba(17, 26, 66, .3); transform: translateY(-5px); }
+.dish-fa { font-family: var(--f-fa-display); font-size: 1.35rem; line-height: 1; color: var(--pom); white-space: nowrap; }
+.dish p { color: var(--ink-soft); max-width: 48ch; }
+.tags { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.tags li {
+  font: 700 .72rem/1 var(--f-body); letter-spacing: .08em; text-transform: uppercase;
+  padding: 6px 9px; border-radius: 6px; background: rgba(17, 26, 66, .07); color: var(--ink);
+}
+.tags li.hot { background: rgba(214, 42, 69, .12); color: #a5182f; }
+.menu-foot {
+  margin-top: 36px; padding: 22px 24px; border-radius: var(--radius);
+  background: var(--ink); color: var(--paper);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;
+}
+.menu-foot p { font-weight: 600; }
+.menu-foot p span { color: var(--saffron); }
+
+/* ---------- Grill gallery ---------- */
+.section-dark { background: var(--night); }
+.section-dark .section-note { color: var(--mist); }
+.gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.tile {
+  position: relative; overflow: hidden; border-radius: var(--radius);
+  background: var(--night-2); text-decoration: none;
+}
+.tile.tall { aspect-ratio: 394 / 458; }
+.tile.wide { aspect-ratio: 396 / 325; }
+.tile img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s cubic-bezier(.2, .8, .2, 1); }
+.tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(12, 20, 64, .85), transparent 45%); }
+.tile-cap {
+  position: absolute; left: 14px; right: 14px; bottom: 14px; z-index: 1;
+  display: flex; align-items: center; gap: 10px;
+  font: 700 1rem/1.2 var(--f-body);
+}
+.tile-cap .play {
+  display: grid; place-items: center; width: 34px; height: 34px; flex: none; border-radius: 50%;
+  background: var(--saffron); color: var(--ink);
+}
+.tile:hover img { transform: scale(1.05); }
+
+/* ---------- Story ---------- */
+.story-grid { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 48px; align-items: center; }
+.story-photo { position: relative; width: clamp(180px, 22vw, 240px); }
+.story-photo img { width: 100%; height: auto; aspect-ratio: 1; border-radius: 50%; object-fit: cover; border: 6px solid var(--saffron); }
+.story-photo .flags {
+  position: absolute; right: -6px; bottom: 8px;
+  padding: 6px 10px; border-radius: 999px; background: var(--paper); color: var(--ink);
+  font: 700 .8rem/1 var(--f-body); letter-spacing: .06em; text-transform: uppercase;
+}
+.story-copy { display: grid; gap: 22px; min-width: 0; }
+.story-copy .eyebrow { color: var(--saffron); }
+.quote-fa {
+  margin: 0; font-family: var(--f-fa-display); font-size: clamp(1.7rem, 4vw, 2.6rem); line-height: 1.45; color: var(--saffron);
+  max-width: 26ch;
+}
+.quote-en { font-family: var(--f-display); font-weight: 600; font-stretch: 90%; font-size: clamp(1.25rem, 2.6vw, 1.6rem); line-height: 1.3; max-width: 40ch; }
+.story-body { color: var(--mist); max-width: 58ch; }
+
+/* ---------- Locations ---------- */
+.loc-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.loc-card {
+  position: relative; display: grid; gap: 18px; align-content: start;
+  padding: clamp(22px, 3vw, 32px); border-radius: var(--radius);
+  background: #fffaf0; border: 2px solid var(--line-paper);
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.loc-card.is-selected { border-color: var(--ink); box-shadow: 8px 8px 0 var(--saffron); }
+.loc-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.loc-city { font: 700 .78rem/1 var(--f-body); letter-spacing: .14em; text-transform: uppercase; color: var(--pom); }
+.loc-badge {
+  display: none; align-items: center; gap: 6px;
+  padding: 6px 10px; border-radius: 999px; background: var(--ink); color: var(--saffron);
+  font: 700 .74rem/1 var(--f-body); letter-spacing: .08em; text-transform: uppercase;
+}
+.loc-card.is-selected .loc-badge { display: inline-flex; }
+.loc-card h3 { font: 800 clamp(2.1rem, 4.5vw, 2.9rem)/.95 var(--f-display); font-stretch: 78%; text-transform: uppercase; letter-spacing: -.015em; }
+.loc-card address { font-style: normal; font-size: 1.1rem; line-height: 1.45; }
+.loc-meta { margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; padding-block: 16px; border-block: 1.5px solid var(--line-paper); }
+.loc-meta dt { font: 700 .72rem/1 var(--f-body); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 6px; }
+.loc-meta dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; user-select: all; }
+.loc-meta dd.soft { user-select: auto; font-weight: 500; color: var(--ink-soft); }
+.loc-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.set-spot {
+  justify-self: start; appearance: none; border: 0; background: transparent; cursor: pointer;
+  padding: 4px 0; color: var(--ink-soft); font: 600 .92rem/1.2 var(--f-body);
+  text-decoration: underline; text-underline-offset: 4px;
+}
+.set-spot:hover { color: var(--ink); }
+.loc-card.is-selected .set-spot { display: none; }
+
+/* ---------- Footer ---------- */
+.site-footer { background: var(--night); }
+.footer-inner { padding-block: 56px 40px; display: grid; gap: 40px; }
+.footer-top { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 24px; }
+.footer-word {
+  font: 800 clamp(3.4rem, 12vw, 8rem)/.82 var(--f-display); font-stretch: 75%;
+  text-transform: uppercase; letter-spacing: -.025em;
+}
+.footer-word b { color: var(--saffron); font-weight: inherit; }
+.footer-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; color: var(--mist); font-size: .98rem; }
+.footer-cols h3 { font: 700 .75rem/1 var(--f-body); letter-spacing: .14em; text-transform: uppercase; color: var(--paper); margin-bottom: 12px; }
+.footer-cols a { color: var(--paper); text-underline-offset: 3px; }
+.footer-cols address { font-style: normal; }
+.footer-legal { color: var(--mist); font-size: .85rem; border-top: 1px solid var(--line-dark); padding-top: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+
+/* ---------- Mobile action bar ---------- */
+.action-bar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+  display: none;
+  padding: 10px var(--gutter-r) calc(10px + env(safe-area-inset-bottom, 0px)) var(--gutter-l);
+  background: rgba(12, 20, 64, .94);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid var(--line-dark);
+  gap: 8px;
+  grid-template-columns: 1.5fr 1fr 1fr;
+}
+.action-bar a {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 52px; border-radius: 14px; text-decoration: none;
+  background: rgba(255, 255, 255, .07); color: var(--paper);
+  font: 700 .95rem/1.1 var(--f-body);
+}
+.action-bar a.primary { background: var(--saffron); color: var(--ink); }
+.action-bar a .sub { display: block; font-weight: 600; font-size: .72rem; opacity: .75; }
+.action-bar a:active { transform: scale(.97); }
+
+/* ---------- Toast ---------- */
+.toast {
+  position: fixed; left: 50%; z-index: 70;
+  bottom: calc(24px + var(--bar-h) + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  padding: 12px 18px; border-radius: 999px;
+  background: var(--paper); color: var(--ink); font-weight: 700;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+  animation: pop .25s ease both;
+}
+@keyframes pop { from { opacity: 0; transform: translate(-50%, 10px); } }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1020px) {
+  .nav { display: none; }
+}
+@media (max-width: 900px) {
+  :root { --bar-h: calc(72px + env(safe-area-inset-bottom, 0px)); }
+  .header-call { display: none; }
+  .action-bar { display: grid; }
+  .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 40px; padding-block: 36px 56px; }
+  .hero-photos { max-width: 460px; }
+  .menu-list { grid-template-columns: minmax(0, 1fr); }
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .tile.tall, .tile.wide { aspect-ratio: 1; }
+  .story-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .loc-grid { grid-template-columns: minmax(0, 1fr); }
+  .footer-cols { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 520px) {
+  .brand-word { font-size: 1.15rem; }
+  .brand svg { width: 30px; height: 30px; }
+  .loc-switch .long { display: none; }
+  .loc-switch .short { display: inline; }
+  .loc-switch button { padding: 0 12px; }
+  .cta-row .btn { flex: 1 1 auto; }
+  .tile-cap { left: 10px; right: 10px; bottom: 10px; font-size: .88rem; }
+  .tile-cap .play { width: 28px; height: 28px; }
+  .loc-meta { grid-template-columns: minmax(0, 1fr); }
+  .dish-fa { font-size: 1.15rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#menu">Skip to menu</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-skewer" viewBox="0 0 40 40">
+    <path d="M6 34 34 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+    <circle cx="35" cy="5" r="2.6" stroke="currentColor" stroke-width="2" fill="none"/>
+    <rect x="9.5" y="22.5" width="8" height="8" rx="2" transform="rotate(45 13.5 26.5)" fill="#f7b519"/>
+    <rect x="16" y="16" width="8" height="8" rx="2" transform="rotate(45 20 20)" fill="#d62a45"/>
+    <rect x="22.5" y="9.5" width="8" height="8" rx="2" transform="rotate(45 26.5 13.5)" fill="#f7b519"/>
+  </symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24">
+    <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-nav" viewBox="0 0 24 24">
+    <path d="M3 11 21 3l-8 18-2-8-8-2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24">
+    <rect x="9" y="9" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-tiktok" viewBox="0 0 24 24">
+    <path d="M16.6 2h-3.3v13.4a2.7 2.7 0 1 1-2.7-2.7c.3 0 .6 0 .9.1V9.4a6 6 0 1 0 5.1 6V8.6a7.6 7.6 0 0 0 4.4 1.4V6.7c-2.4 0-4.4-2-4.4-4.7z" fill="currentColor"/>
+  </symbol>
+  <symbol id="i-play" viewBox="0 0 24 24">
+    <path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/>
+  </symbol>
+</svg>
+
+<header class="site-header" id="header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="Juicy Kabob home">
+      <svg aria-hidden="true" style="color:#b8c0e6"><use href="#i-skewer"/></svg>
+      <span class="brand-word"><b>Juicy</b> Kabob</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#menu">Menu</a>
+      <a href="#grill">Videos</a>
+      <a href="#story">Story</a>
+      <a href="#locations">Locations</a>
+    </nav>
+    <div class="loc-switch" role="group" aria-label="Pick your location">
+      <button type="button" data-set-loc="la" aria-pressed="true"><span class="long">West Hills, LA</span><span class="short">LA</span></button>
+      <button type="button" data-set-loc="lv" aria-pressed="false"><span class="long">Las Vegas</span><span class="short">Vegas</span></button>
+    </div>
+    <a class="btn btn-primary header-call" data-loc-call href="tel:+17023026493">
+      <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call
+    </a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="top">
+    <canvas class="embers" aria-hidden="true"></canvas>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Afghan kabob · LA &amp; Las Vegas</p>
+        <h1 class="hero-title"><span class="t-juicy">Juicy</span><span class="t-kabob">Kabob</span></h1>
+        <p class="hero-fa"><span lang="fa" dir="rtl">بچه کابل</span><span class="gloss">“Kabul kid”</span></p>
+        <p class="lead">Skewers over open flame, Kabuli palaw by the pot, and the cook from your For You page working the grill himself.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" data-loc-call href="tel:+17023026493">
+            <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span>Call <span data-loc-name>West Hills</span></span>
+          </a>
+          <a class="btn btn-ghost" href="#menu">See the menu</a>
+        </div>
+        <a class="proof" href="https://www.tiktok.com/@juicykabob__" target="_blank" rel="noopener">
+          <span class="tt"><svg class="icon" aria-hidden="true"><use href="#i-tiktok"/></svg></span>
+          <span><strong>240.6K</strong> followers</span>
+          <span class="sep" aria-hidden="true"></span>
+          <span><strong>2.8M</strong> likes on TikTok</span>
+        </a>
+      </div>
+
+      <div class="hero-photos">
+        <figure class="ph ph-main"><img src="images/grill-smoke.jpg" width="394" height="458" alt="The cook leaning over a smoking grill outside the West Hills spot" fetchpriority="high"></figure>
+        <figure class="ph ph-a"><img src="images/chicken-crown.jpg" width="394" height="452" alt="The cook giving a thumbs up with a crown of grilled chicken kabob on his head"></figure>
+        <figure class="ph ph-b"><img src="images/sauce-pour.jpg" width="394" height="459" alt="Red meat sauce pouring from a pot onto a platter next to sliced tomatoes"></figure>
+        <a class="sticker" href="https://www.tiktok.com/@juicykabob__" target="_blank" rel="noopener">
+          <img src="images/chef.jpg" width="275" height="275" alt="">@juicykabob__
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="band" aria-hidden="true"></div>
+
+  <!-- MENU: edit dishes here. Add prices inside each .dish-top if you want them shown. -->
+  <section class="section section-paper" id="menu">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Off the grill</p>
+          <h2 class="h2">Menu <span lang="fa" dir="rtl">منو</span></h2>
+        </div>
+        <p class="section-note">Call ahead for prices and what's on the grill today.</p>
+      </div>
+
+      <div class="chips" role="group" aria-label="Filter the menu">
+        <button type="button" class="chip" data-filter="all" aria-pressed="true">All <span class="n">11</span></button>
+        <button type="button" class="chip" data-filter="kabob" aria-pressed="false">Kabobs <span class="n">4</span></button>
+        <button type="button" class="chip" data-filter="plate" aria-pressed="false">Plates &amp; rice <span class="n">3</span></button>
+        <button type="button" class="chip" data-filter="side" aria-pressed="false">Sides &amp; drinks <span class="n">4</span></button>
+      </div>
+
+      <ul class="menu-list" id="menu-list" aria-live="polite">
+        <li class="dish" data-cat="kabob">
+          <div class="dish-top"><h3>Chopan Kabob</h3><span class="leader"></span><span class="dish-fa" lang="fa" dir="rtl">کباب چوپان</span></div>
+          <p>Shepherd-style lamb chunks, salted and charred right on the skewer. The Kabul street classic.</p>
+          <ul class="tags"><li>Lamb</li></ul>
+        </li>
+        <li class="dish" data-cat="kabob">
+          <div class="dish-top"><h3>Chicken Kabob</h3><span class="leader"></span><span class="dish-fa" lang="fa" dir="rtl">کباب مرغ</span></div>
+          <p>Chicken soaked in yogurt, garlic and spices, then grilled until the edges blister.</p>
+          <ul class="tags"><li>Chicken</li></ul>
+        </li>
+        <li class="dish" data-cat="kabob">
+          <div class="dish-top"><h3>Kofta Kabob</h3><span class="leader"></span><span class="dish-fa" lang="fa" dir="rtl">کباب کوبیده</span></div>
+          <p>Ground beef and onion pressed onto a wide skewer. Juicy inside, crisp outside.</p>
+          <ul class="tags"><li>Beef</li></ul>
+        </li>
+        <li class="dish" data-cat="kabob">
+          <div class="dish-top"><h3>Tikka Kabob</h3><span class="leader"></span><span class="dish-fa" lang="fa" dir="rtl">تکه کباب</span></div>
+          <p>Marinated beef cubes cooked hot and fast over the flame.</p>
+          <ul class="tags"><li>Beef</li></ul>
+        </li>
+        <li class="dish" data-cat="plate">
+          <div class="dish-top"><h3>Kabuli Palaw</h3><span class="leader"></span><span class="dish-fa" lang="fa" dir="rtl">قابلی پلو</span></div>
+          <p>Afghanistan's national dish. Long-grain rice with tender lamb, sweet carrots and raisins.</p>
+          <ul class="tags"><li>Lamb</li><li>Rice</li></ul>
+        </li>
+        <li class="dish" data-cat="plate">
+          <div class="dish-top"><h3>Kabob Plate</h3><span class="leader"></span><span class="dish-fa" lang="fa" dir="rtl">بشقاب کباب</span></div>
+          <p>Any kabob over rice with naan, salad and green chutney on the side.</p>
+          <ul class="tags"><li>Pick your meat</li></ul>
+        </li>
+        <li class="dish" data-cat="plate">
+          <div class="dish-top"><h3>Kabob Wrap</h3><span class="leader"></span><span class="dish-fa" lang="fa" dir="rtl">رول کباب</span></div>
+          <p>Skewer meat rolled in warm naan with onions and chutney. Made for eating on your feet.</p>
+          <ul class="tags"><li>Pick your meat</li></ul>
+        </li>
+        <li class="dish" data-cat="side">
+          <div class="dish-top"><h3>Naan</h3><span class="leader"></span><span class="dish-fa" lang="fa" dir="rtl">نان</span></div>
+          <p>Fresh flatbread for tearing, wrapping and scooping.</p>
+          <ul class="tags"><li>Vegetarian</li></ul>
+        </li>
+        <li class="dish" data-cat="side">
+          <div class="dish-top"><h3>Green Chutney</h3><span class="leader"></span><span class="dish-fa" lang="fa" dir="rtl">چتنی سبز</span></div>
+          <p>Cilantro, green chili, garlic and lemon. Put it on everything.</p>
+          <ul class="tags"><li class="hot">Spicy</li><li>Vegan</li></ul>
+        </li>
+        <li class="dish" data-cat="side">
+          <div class="dish-top"><h3>Salata</h3><span class="leader"></span><span class="dish-fa" lang="fa" dir="rtl">سلاته</span></div>
+          <p>Chopped tomato, cucumber and onion with a squeeze of lime.</p>
+          <ul class="tags"><li>Vegan</li></ul>
+        </li>
+        <li class="dish" data-cat="side">
+          <div class="dish-top"><h3>Doogh</h3><span class="leader"></span><span class="dish-fa" lang="fa" dir="rtl">دوغ</span></div>
+          <p>Cold, salty yogurt drink with dried mint. Kabob's best friend.</p>
+          <ul class="tags"><li>Drink</li></ul>
+        </li>
+      </ul>
+
+      <div class="menu-foot">
+        <p>Hungry now? <span>Call <span data-loc-name>West Hills</span></span> to order ahead.</p>
+        <a class="btn btn-primary" data-loc-call href="tel:+17023026493">
+          <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span data-loc-phone>(702) 302-6493</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark" id="grill">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">@juicykabob__ on TikTok</p>
+          <h2 class="h2">Watch the grill <span lang="fa" dir="rtl">کباب داغ</span></h2>
+        </div>
+        <a class="btn btn-ghost" href="https://www.tiktok.com/@juicykabob__" target="_blank" rel="noopener">
+          <svg class="icon" aria-hidden="true"><use href="#i-tiktok"/></svg>Follow on TikTok
+        </a>
+      </div>
+      <div class="gallery">
+        <a class="tile tall" href="https://www.tiktok.com/@juicykabob__" target="_blank" rel="noopener">
+          <img src="images/grill-smoke.jpg" width="394" height="458" loading="lazy" alt="The cook working a smoking grill">
+          <span class="tile-cap"><span class="play"><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg></span>Smoke check</span>
+        </a>
+        <a class="tile tall" href="https://www.tiktok.com/@juicykabob__" target="_blank" rel="noopener">
+          <img src="images/chicken-crown.jpg" width="394" height="452" loading="lazy" alt="Grilled chicken kabob balanced on the cook's head">
+          <span class="tile-cap"><span class="play"><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg></span>Chicken crown</span>
+        </a>
+        <a class="tile tall" href="https://www.tiktok.com/@juicykabob__" target="_blank" rel="noopener">
+          <img src="images/sauce-pour.jpg" width="394" height="459" loading="lazy" alt="Sauce pouring from a pot onto a platter">
+          <span class="tile-cap"><span class="play"><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg></span>The pour</span>
+        </a>
+        <a class="tile wide" href="https://www.tiktok.com/@juicykabob__" target="_blank" rel="noopener">
+          <img src="images/pot.jpg" width="394" height="325" loading="lazy" alt="The cook stirring a big pot in the kitchen">
+          <span class="tile-cap"><span class="play"><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg></span>Pot of the day</span>
+        </a>
+        <a class="tile wide" href="https://www.tiktok.com/@juicykabob__" target="_blank" rel="noopener">
+          <img src="images/bite.jpg" width="396" height="325" loading="lazy" alt="The cook biting into grilled lamb">
+          <span class="tile-cap"><span class="play"><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg></span>First bite</span>
+        </a>
+        <a class="tile wide" href="https://www.tiktok.com/@juicykabob__" target="_blank" rel="noopener">
+          <img src="images/skewer-smile.jpg" width="396" height="323" loading="lazy" alt="The cook holding a long skewer in the parking lot">
+          <span class="tile-cap"><span class="play"><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg></span>Skewer ready</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-lapis" id="story">
+    <div class="wrap story-grid">
+      <div class="story-photo">
+        <img src="images/chef.jpg" width="275" height="275" loading="lazy" alt="Portrait of the Juicy Kabob cook">
+        <span class="flags">Kabul → LA</span>
+      </div>
+      <div class="story-copy">
+        <p class="eyebrow">The cook</p>
+        <blockquote class="quote-fa" lang="fa" dir="rtl">ما اینجا در لس‌انجلس هستیم و بهترین کباب‌های شهر را برای شما سرو می‌کنیم!</blockquote>
+        <p class="quote-en">“We’re out here in LA serving the best kabobs in the city. Come laugh with us and find your new favorite food.”</p>
+        <p class="story-body">Juicy Kabob is one cook, an open grill and recipes from Kabul. Afghan, Iranian, American and Latino regulars eat off the same skewers. Watch him cook on TikTok, then come taste it in West Hills or Las Vegas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATIONS: update hours in each card when you have them. -->
+  <section class="section section-paper" id="locations">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Two cities, one grill</p>
+          <h2 class="h2">Find us <span lang="fa" dir="rtl">آدرس</span></h2>
+        </div>
+        <p class="section-note">Pick your spot and every Call and Directions button on this page goes there.</p>
+      </div>
+
+      <div class="loc-grid">
+        <article class="loc-card is-selected" data-loc="la">
+          <div class="loc-head">
+            <p class="loc-city">Los Angeles</p>
+            <span class="loc-badge">Your spot</span>
+          </div>
+          <h3>West Hills</h3>
+          <address>6609 Fallbrook Ave<br>West Hills, CA 91307</address>
+          <dl class="loc-meta">
+            <div><dt>Phone</dt><dd>(702) 302-6493</dd></div>
+            <div><dt>Hours</dt><dd class="soft">Call for today's hours</dd></div>
+          </dl>
+          <div class="loc-actions">
+            <a class="btn btn-ink" href="tel:+17023026493"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call</a>
+            <a class="btn btn-outline" data-dir="la" href="https://www.google.com/maps/search/?api=1&amp;query=6609%20Fallbrook%20Ave%2C%20West%20Hills%2C%20CA%2091307" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-nav"/></svg>Directions</a>
+            <button type="button" class="btn btn-text" data-copy="6609 Fallbrook Ave, West Hills, CA 91307"><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg>Copy address</button>
+          </div>
+          <button type="button" class="set-spot" data-set-loc="la">Make West Hills my spot</button>
+        </article>
+
+        <article class="loc-card" data-loc="lv">
+          <div class="loc-head">
+            <p class="loc-city">Las Vegas</p>
+            <span class="loc-badge">Your spot</span>
+          </div>
+          <h3>Rancho Drive</h3>
+          <address>840 S Rancho Dr, Suite 6<br>Las Vegas, NV</address>
+          <dl class="loc-meta">
+            <div><dt>Phone</dt><dd>(702) 675-6283</dd></div>
+            <div><dt>Hours</dt><dd class="soft">Call for today's hours</dd></div>
+          </dl>
+          <div class="loc-actions">
+            <a class="btn btn-ink" href="tel:+17026756283"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call</a>
+            <a class="btn btn-outline" data-dir="lv" href="https://www.google.com/maps/search/?api=1&amp;query=840%20S%20Rancho%20Dr%20Suite%206%2C%20Las%20Vegas%2C%20NV" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-nav"/></svg>Directions</a>
+            <button type="button" class="btn btn-text" data-copy="840 S Rancho Dr, Suite 6, Las Vegas, NV"><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg>Copy address</button>
+          </div>
+          <button type="button" class="set-spot" data-set-loc="lv">Make Las Vegas my spot</button>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="band" aria-hidden="true"></div>
+  <div class="wrap footer-inner">
+    <div class="footer-top">
+      <p class="footer-word"><b>Juicy</b><br>Kabob</p>
+      <a class="btn btn-primary" href="https://www.tiktok.com/@juicykabob__" target="_blank" rel="noopener">
+        <svg class="icon" aria-hidden="true"><use href="#i-tiktok"/></svg>@juicykabob__
+      </a>
+    </div>
+    <div class="footer-cols">
+      <div>
+        <h3>West Hills, LA</h3>
+        <address>6609 Fallbrook Ave<br>West Hills, CA 91307<br><a href="tel:+17023026493">(702) 302-6493</a></address>
+      </div>
+      <div>
+        <h3>Las Vegas</h3>
+        <address>840 S Rancho Dr, Suite 6<br>Las Vegas, NV<br><a href="tel:+17026756283">(702) 675-6283</a></address>
+      </div>
+      <div>
+        <h3>Jump to</h3>
+        <a href="#menu">Menu</a><br><a href="#grill">Videos</a><br><a href="#locations">Locations</a>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <span>© <span id="year">2026</span> Juicy Kabob</span>
+      <span lang="fa" dir="rtl">بچه کابل</span>
+    </div>
+  </div>
+</footer>
+
+<nav class="action-bar" aria-label="Quick actions">
+  <a class="primary" data-loc-call href="tel:+17023026493">
+    <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+    <span>Call<span class="sub" data-loc-name>West Hills</span></span>
+  </a>
+  <a data-loc-dir href="https://www.google.com/maps/search/?api=1&amp;query=6609%20Fallbrook%20Ave%2C%20West%20Hills%2C%20CA%2091307" target="_blank" rel="noopener">
+    <svg class="icon" aria-hidden="true"><use href="#i-nav"/></svg>Go
+  </a>
+  <a href="#menu">
+    <svg class="icon" aria-hidden="true" style="color:currentColor"><use href="#i-skewer"/></svg>Menu
+  </a>
+</nav>
+
+<div class="toast" role="status" aria-live="polite" hidden></div>
+
+<script>
+(function () {
+  var LOCS = {
+    la: { name: 'West Hills', phone: '(702) 302-6493', tel: '+17023026493', address: '6609 Fallbrook Ave, West Hills, CA 91307' },
+    lv: { name: 'Las Vegas', phone: '(702) 675-6283', tel: '+17026756283', address: '840 S Rancho Dr, Suite 6, Las Vegas, NV' }
+  };
+  var KEY = 'juicykabob.loc';
+  var isApple = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+  function mapsUrl(address) {
+    var q = encodeURIComponent(address);
+    return isApple ? 'https://maps.apple.com/?q=' + q : 'https://www.google.com/maps/search/?api=1&query=' + q;
+  }
+  function all(sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); }
+
+  // Location: one choice drives every Call / Directions button on the page.
+  function setLoc(key, save) {
+    var loc = LOCS[key] || LOCS.la;
+    all('[data-set-loc]').forEach(function (b) {
+      if (b.closest('.loc-switch')) b.setAttribute('aria-pressed', String(b.dataset.setLoc === key));
+    });
+    all('.loc-card').forEach(function (c) { c.classList.toggle('is-selected', c.dataset.loc === key); });
+    all('[data-loc-call]').forEach(function (a) { a.href = 'tel:' + loc.tel; });
+    all('[data-loc-dir]').forEach(function (a) { a.href = mapsUrl(loc.address); });
+    all('[data-loc-name]').forEach(function (s) { s.textContent = loc.name; });
+    all('[data-loc-phone]').forEach(function (s) { s.textContent = loc.phone; });
+    if (save) { try { localStorage.setItem(KEY, key); } catch (e) {} }
+  }
+  all('[data-set-loc]').forEach(function (b) {
+    b.addEventListener('click', function () { setLoc(b.dataset.setLoc, true); });
+  });
+  all('[data-dir]').forEach(function (a) { a.href = mapsUrl(LOCS[a.dataset.dir].address); });
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch (e) {}
+  setLoc(saved && LOCS[saved] ? saved : 'la', false);
+
+  // Menu filter
+  var chips = all('.chip');
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      var f = chip.dataset.filter;
+      chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c === chip)); });
+      all('.dish').forEach(function (d) { d.hidden = !(f === 'all' || d.dataset.cat === f); });
+    });
+  });
+
+  // Copy address
+  var toast = document.querySelector('.toast'), toastTimer;
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.hidden = false;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.hidden = true; }, 2200);
+  }
+  function fallbackCopy(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+    return ok;
+  }
+  all('[data-copy]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = btn.dataset.copy;
+      var done = function () { showToast('Address copied'); };
+      var fail = function () { showToast(fallbackCopy(text) ? 'Address copied' : text); };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, fail);
+      } else { fail(); }
+    });
+  });
+
+  // Header edge on scroll
+  var header = document.getElementById('header');
+  function onScroll() { header.classList.toggle('is-scrolled', window.scrollY > 8); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Embers rising behind the hero
+  var canvas = document.querySelector('.embers');
+  if (!canvas || !canvas.getContext || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var ctx = canvas.getContext('2d'), w = 0, h = 0, parts = [], raf = 0, visible = true;
+
+  function size() {
+    var r = canvas.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = r.width; h = r.height;
+    canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var n = w < 600 ? 26 : 54;
+    while (parts.length < n) parts.push(spawn({}, true));
+    parts.length = n;
+  }
+  function spawn(p, anywhere) {
+    p.x = w * (0.25 + Math.random() * 0.75);
+    p.y = anywhere ? Math.random() * h : h + 8;
+    p.vy = -(0.35 + Math.random() * 1.05);
+    p.vx = (Math.random() - 0.5) * 0.3;
+    p.r = 0.7 + Math.random() * 2;
+    p.max = 220 + Math.random() * 260;
+    p.life = anywhere ? Math.random() * p.max : 0;
+    p.hue = 18 + Math.random() * 26;
+    p.seed = Math.random() * 100;
+    return p;
+  }
+  function tick() {
+    ctx.clearRect(0, 0, w, h);
+    ctx.globalCompositeOperation = 'lighter';
+    for (var i = 0; i < parts.length; i++) {
+      var p = parts[i];
+      p.life++;
+      p.x += p.vx + Math.sin((p.life + p.seed) / 28) * 0.28;
+      p.y += p.vy;
+      var t = p.life / p.max;
+      var a = (t < 0.12 ? t / 0.12 : 1 - t) * 0.85;
+      if (a <= 0 || p.y < -10) { spawn(p, false); continue; }
+      ctx.fillStyle = 'hsla(' + p.hue + ',100%,55%,' + (a * 0.14) + ')';
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r * 4, 0, 6.2832); ctx.fill();
+      ctx.fillStyle = 'hsla(' + p.hue + ',100%,' + (62 + p.r * 6) + '%,' + a + ')';
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.2832); ctx.fill();
+    }
+    raf = requestAnimationFrame(tick);
+  }
+  function start() { if (!raf && visible && !document.hidden) raf = requestAnimationFrame(tick); }
+  function stop() { cancelAnimationFrame(raf); raf = 0; }
+
+  size();
+  if ('ResizeObserver' in window) new ResizeObserver(size).observe(canvas);
+  else window.addEventListener('resize', size);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      visible = entries[0].isIntersecting;
+      visible ? start() : stop();
+    }).observe(canvas);
+  }
+  document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+  start();
+})();
+</script>
+</body>
+</html>
