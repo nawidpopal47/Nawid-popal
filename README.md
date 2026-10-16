@@ -3,9 +3,13 @@
 One-page site for [@juicykabob__](https://www.tiktok.com/@juicykabob__). Plain HTML, no build step.
 
 ```
-index.html   the whole site (styles and script inline)
-images/      photos, cropped from the TikTok profile
+index.html     the whole site (styles and script inline)
+images/        photos, cropped from the TikTok profile
+js/motion.js   all animation (GSAP + ScrollTrigger + SplitText, Lenis smooth scroll)
+vendor/        those libraries, self-hosted
 ```
+
+Animation turns off for visitors with "reduce motion" set. To remove it, delete the five `<script>` tags above `</body>` that load `vendor/` and `js/motion.js`.
 
 ## Before going live
 
