@@ -417,17 +417,66 @@ p { margin: 0; }
   backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
   border-top: 1px solid var(--line-dark);
   gap: 8px;
-  grid-template-columns: 1.5fr 1fr 1fr;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
 }
-.action-bar a {
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-  min-height: 52px; border-radius: 14px; text-decoration: none;
+.action-bar a, .action-bar button {
+  appearance: none; border: 0; cursor: pointer; width: 100%; text-align: left;
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+  min-height: 52px; padding: 0 6px; border-radius: 14px; text-decoration: none;
   background: rgba(255, 255, 255, .07); color: var(--paper);
-  font: 700 .95rem/1.1 var(--f-body);
+  font: 700 .9rem/1.1 var(--f-body);
 }
-.action-bar a.primary { background: var(--saffron); color: var(--ink); }
-.action-bar a .sub { display: block; font-weight: 600; font-size: .72rem; opacity: .75; }
-.action-bar a:active { transform: scale(.97); }
+.action-bar .primary { background: var(--saffron); color: var(--ink); }
+.action-bar .sub { display: block; font-weight: 600; font-size: .7rem; opacity: .75; }
+.action-bar a:active, .action-bar button:active { transform: scale(.97); }
+
+/* ---------- Order sheet ---------- */
+html:has(.order-sheet[open]) { overflow: hidden; }
+.order-sheet {
+  padding: 0; border: 0; background: transparent; color: var(--ink);
+  width: min(480px, calc(100% - 32px)); max-width: 100%; max-height: 100%; overflow: visible;
+}
+.order-sheet::backdrop { background: rgba(12, 20, 64, .62); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.sheet-body {
+  display: grid; gap: 18px; padding: 26px;
+  max-height: calc(100dvh - 32px); overflow-y: auto; overscroll-behavior: contain;
+  background: var(--paper); border-radius: 22px; box-shadow: 0 30px 80px rgba(0, 0, 0, .45);
+}
+.order-sheet[open] .sheet-body { animation: sheet-in .45s cubic-bezier(.2, .8, .2, 1) both; }
+@keyframes sheet-in { from { opacity: 0; transform: translateY(28px) scale(.97); } }
+.sheet-top { display: flex; align-items: start; justify-content: space-between; gap: 16px; }
+.sheet-top .eyebrow { color: var(--pom); margin-bottom: 8px; }
+.sheet-title { font: 800 clamp(1.9rem, 7vw, 2.5rem)/.92 var(--f-display); font-stretch: 78%; text-transform: uppercase; letter-spacing: -.015em; }
+.sheet-title span { display: block; color: var(--pom); }
+.sheet-close {
+  appearance: none; flex: none; cursor: pointer; display: grid; place-items: center;
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1.5px solid var(--line-paper); background: transparent; color: var(--ink);
+}
+.sheet-close:hover { border-color: var(--ink); }
+.sheet-switch { justify-self: start; background: rgba(17, 26, 66, .06); border-color: var(--line-paper); }
+.sheet-switch button { color: var(--ink-soft); }
+.sheet-switch button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.order-apps { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.order-app, .order-call {
+  display: flex; align-items: center; gap: 14px; min-height: 68px; padding: 12px 16px;
+  border-radius: 14px; border: 2px solid var(--line-paper); background: #fffaf0; color: var(--ink);
+  text-decoration: none; transition: border-color .15s ease, transform .15s ease, box-shadow .15s ease;
+}
+.order-app:hover, .order-call:hover { border-color: var(--ink); box-shadow: 5px 5px 0 var(--saffron); transform: translate(-2px, -2px); }
+.order-badge {
+  display: grid; place-items: center; flex: none; width: 42px; height: 42px; border-radius: 12px;
+  background: var(--ink); color: var(--saffron); font: 800 1.15rem/1 var(--f-display);
+}
+.order-text { display: grid; gap: 3px; margin-right: auto; min-width: 0; }
+.order-text strong { font: 800 1.2rem/1.1 var(--f-display); font-stretch: 85%; }
+.order-text span { font-size: .88rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.order-call { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.order-call .order-badge { background: var(--saffron); color: var(--ink); }
+.order-call .order-text span { color: var(--mist); }
+.order-empty { padding: 14px 16px; border-radius: 14px; background: rgba(214, 42, 69, .08); }
+.sheet-note { font-size: .85rem; color: var(--ink-soft); }
+.menu-foot-actions, .footer-actions { display: flex; flex-wrap: wrap; gap: 10px; }
 
 /* ---------- Toast ---------- */
 .toast {
@@ -442,7 +491,7 @@ p { margin: 0; }
 @keyframes pop { from { opacity: 0; transform: translate(-50%, 10px); } }
 
 /* ---------- Responsive ---------- */
-@media (max-width: 1020px) {
+@media (max-width: 1100px) {
   .nav { display: none; }
 }
 @media (max-width: 900px) {
@@ -457,6 +506,15 @@ p { margin: 0; }
   .story-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
   .loc-grid { grid-template-columns: minmax(0, 1fr); }
   .footer-cols { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 600px) {
+  .order-sheet { width: 100%; margin: auto 0 0; }
+  .sheet-body {
+    max-height: 88dvh; border-radius: 22px 22px 0 0;
+    padding: 24px var(--gutter-r) calc(24px + env(safe-area-inset-bottom, 0px)) var(--gutter-l);
+  }
+  .order-sheet[open] .sheet-body { animation-name: sheet-up; }
+  @keyframes sheet-up { from { transform: translateY(100%); } }
 }
 @media (max-width: 520px) {
   .brand-word { font-size: 1.15rem; }
@@ -539,6 +597,16 @@ html.lenis, html.lenis body { height: auto; }
   <symbol id="i-tiktok" viewBox="0 0 24 24">
     <path d="M16.6 2h-3.3v13.4a2.7 2.7 0 1 1-2.7-2.7c.3 0 .6 0 .9.1V9.4a6 6 0 1 0 5.1 6V8.6a7.6 7.6 0 0 0 4.4 1.4V6.7c-2.4 0-4.4-2-4.4-4.7z" fill="currentColor"/>
   </symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24">
+    <path d="M5 8h14l-1.2 12.1a1 1 0 0 1-1 .9H7.2a1 1 0 0 1-1-.9L5 8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M9 10V6.5a3 3 0 0 1 6 0V10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24">
+    <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-close" viewBox="0 0 24 24">
+    <path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+  </symbol>
   <symbol id="i-play" viewBox="0 0 24 24">
     <path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/>
   </symbol>
@@ -560,9 +628,12 @@ html.lenis, html.lenis body { height: auto; }
       <button type="button" data-set-loc="la" aria-pressed="true"><span class="long">West Hills, LA</span><span class="short">LA</span></button>
       <button type="button" data-set-loc="lv" aria-pressed="false"><span class="long">Las Vegas</span><span class="short">Vegas</span></button>
     </div>
-    <a class="btn btn-primary header-call" data-loc-call href="tel:+17023026493">
+    <a class="btn btn-ghost header-call" data-loc-call href="tel:+17023026493">
       <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call
     </a>
+    <button type="button" class="btn btn-primary header-call" data-order>
+      <svg class="icon" aria-hidden="true"><use href="#i-bag"/></svg>Order online
+    </button>
   </div>
 </header>
 
@@ -576,10 +647,12 @@ html.lenis, html.lenis body { height: auto; }
         <p class="hero-fa"><span lang="fa" dir="rtl">بچه کابل</span><span class="gloss">“Kabul kid”</span></p>
         <p class="lead">Skewers over open flame, Kabuli palaw by the pot, and the cook from your For You page working the grill himself.</p>
         <div class="cta-row">
-          <a class="btn btn-primary" data-loc-call href="tel:+17023026493">
+          <button type="button" class="btn btn-primary" data-order>
+            <svg class="icon" aria-hidden="true"><use href="#i-bag"/></svg>Order online
+          </button>
+          <a class="btn btn-ghost" data-loc-call href="tel:+17023026493">
             <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span>Call <span data-loc-name>West Hills</span></span>
           </a>
-          <a class="btn btn-ghost" href="#menu">See the menu</a>
         </div>
         <a class="proof" href="https://www.tiktok.com/@juicykabob__" target="_blank" rel="noopener">
           <span class="tt"><svg class="icon" aria-hidden="true"><use href="#i-tiktok"/></svg></span>
@@ -679,10 +752,15 @@ html.lenis, html.lenis body { height: auto; }
       </ul>
 
       <div class="menu-foot">
-        <p>Hungry now? <span>Call <span data-loc-name>West Hills</span></span> to order ahead.</p>
-        <a class="btn btn-primary" data-loc-call href="tel:+17023026493">
-          <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span data-loc-phone>(702) 302-6493</span>
-        </a>
+        <p>Hungry now? Order from <span data-loc-name>West Hills</span> for delivery or pickup.</p>
+        <div class="menu-foot-actions">
+          <button type="button" class="btn btn-primary" data-order>
+            <svg class="icon" aria-hidden="true"><use href="#i-bag"/></svg>Order online
+          </button>
+          <a class="btn btn-ghost" data-loc-call href="tel:+17023026493">
+            <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span data-loc-phone>(702) 302-6493</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -766,7 +844,8 @@ html.lenis, html.lenis body { height: auto; }
             <div><dt>Hours</dt><dd class="soft">Call for today's hours</dd></div>
           </dl>
           <div class="loc-actions">
-            <a class="btn btn-ink" href="tel:+17023026493"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call</a>
+            <button type="button" class="btn btn-ink" data-order="la"><svg class="icon" aria-hidden="true"><use href="#i-bag"/></svg>Order online</button>
+            <a class="btn btn-outline" href="tel:+17023026493"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call</a>
             <a class="btn btn-outline" data-dir="la" href="https://www.google.com/maps/search/?api=1&amp;query=6609%20Fallbrook%20Ave%2C%20West%20Hills%2C%20CA%2091307" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-nav"/></svg>Directions</a>
             <button type="button" class="btn btn-text" data-copy="6609 Fallbrook Ave, West Hills, CA 91307"><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg>Copy address</button>
           </div>
@@ -785,7 +864,8 @@ html.lenis, html.lenis body { height: auto; }
             <div><dt>Hours</dt><dd class="soft">Call for today's hours</dd></div>
           </dl>
           <div class="loc-actions">
-            <a class="btn btn-ink" href="tel:+17026756283"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call</a>
+            <button type="button" class="btn btn-ink" data-order="lv"><svg class="icon" aria-hidden="true"><use href="#i-bag"/></svg>Order online</button>
+            <a class="btn btn-outline" href="tel:+17026756283"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call</a>
             <a class="btn btn-outline" data-dir="lv" href="https://www.google.com/maps/search/?api=1&amp;query=840%20S%20Rancho%20Dr%20Suite%206%2C%20Las%20Vegas%2C%20NV" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-nav"/></svg>Directions</a>
             <button type="button" class="btn btn-text" data-copy="840 S Rancho Dr, Suite 6, Las Vegas, NV"><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg>Copy address</button>
           </div>
@@ -801,9 +881,14 @@ html.lenis, html.lenis body { height: auto; }
   <div class="wrap footer-inner">
     <div class="footer-top">
       <p class="footer-word"><b>Juicy</b><br>Kabob</p>
-      <a class="btn btn-primary" href="https://www.tiktok.com/@juicykabob__" target="_blank" rel="noopener">
-        <svg class="icon" aria-hidden="true"><use href="#i-tiktok"/></svg>@juicykabob__
-      </a>
+      <div class="footer-actions">
+        <button type="button" class="btn btn-primary" data-order>
+          <svg class="icon" aria-hidden="true"><use href="#i-bag"/></svg>Order online
+        </button>
+        <a class="btn btn-ghost" href="https://www.tiktok.com/@juicykabob__" target="_blank" rel="noopener">
+          <svg class="icon" aria-hidden="true"><use href="#i-tiktok"/></svg>@juicykabob__
+        </a>
+      </div>
     </div>
     <div class="footer-cols">
       <div>
@@ -827,9 +912,12 @@ html.lenis, html.lenis body { height: auto; }
 </footer>
 
 <nav class="action-bar" aria-label="Quick actions">
-  <a class="primary" data-loc-call href="tel:+17023026493">
-    <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
-    <span>Call<span class="sub" data-loc-name>West Hills</span></span>
+  <button type="button" class="primary" data-order>
+    <svg class="icon" aria-hidden="true"><use href="#i-bag"/></svg>
+    <span>Order<span class="sub" data-loc-name>West Hills</span></span>
+  </button>
+  <a data-loc-call href="tel:+17023026493">
+    <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call
   </a>
   <a data-loc-dir href="https://www.google.com/maps/search/?api=1&amp;query=6609%20Fallbrook%20Ave%2C%20West%20Hills%2C%20CA%2091307" target="_blank" rel="noopener">
     <svg class="icon" aria-hidden="true"><use href="#i-nav"/></svg>Go
@@ -839,14 +927,55 @@ html.lenis, html.lenis body { height: auto; }
   </a>
 </nav>
 
+<dialog class="order-sheet" id="order-sheet" aria-labelledby="order-title" data-lenis-prevent>
+  <div class="sheet-body">
+    <div class="sheet-top">
+      <div>
+        <p class="eyebrow">Order online</p>
+        <h2 class="sheet-title" id="order-title">Juicy Kabob <span data-loc-name>West Hills</span></h2>
+      </div>
+      <button type="button" class="sheet-close" data-close-order aria-label="Close">
+        <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>
+      </button>
+    </div>
+    <div class="loc-switch sheet-switch" role="group" aria-label="Order from">
+      <button type="button" data-set-loc="la" aria-pressed="true">West Hills, LA</button>
+      <button type="button" data-set-loc="lv" aria-pressed="false">Las Vegas</button>
+    </div>
+    <ul class="order-apps" id="order-apps"></ul>
+    <p class="order-empty" id="order-empty" hidden>Delivery apps for <span data-loc-name>West Hills</span> are coming soon. Call to order for pickup.</p>
+    <a class="order-call" data-loc-call href="tel:+17023026493">
+      <span class="order-badge"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></span>
+      <span class="order-text"><strong>Order by phone</strong><span data-loc-phone>(702) 302-6493</span></span>
+      <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+    </a>
+    <p class="sheet-note">You finish the order in the app. Each app sets its own prices and delivery fees.</p>
+  </div>
+</dialog>
+
 <div class="toast" role="status" aria-live="polite" hidden></div>
 
 <script>
 (function () {
+  // ORDER ONLINE: paste each location's store link between the quotes.
+  // Apps with an empty link stay hidden; with none filled in, the sheet offers ordering by phone.
   var LOCS = {
-    la: { name: 'West Hills', phone: '(702) 302-6493', tel: '+17023026493', address: '6609 Fallbrook Ave, West Hills, CA 91307' },
-    lv: { name: 'Las Vegas', phone: '(702) 675-6283', tel: '+17026756283', address: '840 S Rancho Dr, Suite 6, Las Vegas, NV' }
+    la: {
+      name: 'West Hills', phone: '(702) 302-6493', tel: '+17023026493', address: '6609 Fallbrook Ave, West Hills, CA 91307',
+      order: { doordash: '', ubereats: '', grubhub: '' }
+    },
+    lv: {
+      name: 'Las Vegas', phone: '(702) 675-6283', tel: '+17026756283', address: '840 S Rancho Dr, Suite 6, Las Vegas, NV',
+      order: { doordash: '', ubereats: '', grubhub: '' }
+    }
   };
+  var APPS = [
+    { key: 'doordash', name: 'DoorDash', badge: 'D' },
+    { key: 'ubereats', name: 'Uber Eats', badge: 'U' },
+    { key: 'grubhub', name: 'Grubhub', badge: 'G' }
+  ];
+  var current = 'la';
+  var sheet = document.getElementById('order-sheet');
   var KEY = 'juicykabob.loc';
   var isApple = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
     (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
@@ -859,7 +988,9 @@ html.lenis, html.lenis body { height: auto; }
 
   // Location: one choice drives every Call / Directions button on the page.
   function setLoc(key, save) {
-    var loc = LOCS[key] || LOCS.la;
+    if (!LOCS[key]) key = 'la';
+    var loc = LOCS[key];
+    current = key;
     all('[data-set-loc]').forEach(function (b) {
       if (b.closest('.loc-switch')) b.setAttribute('aria-pressed', String(b.dataset.setLoc === key));
     });
@@ -872,6 +1003,48 @@ html.lenis, html.lenis body { height: auto; }
       try { localStorage.setItem(KEY, key); } catch (e) {}
       document.dispatchEvent(new CustomEvent('jk:loc', { detail: key }));
     }
+    if (sheet && sheet.open) renderOrder();
+  }
+
+  // Order sheet: lists the delivery apps for the chosen location
+  function renderOrder() {
+    var list = document.getElementById('order-apps');
+    var links = LOCS[current].order || {};
+    list.textContent = '';
+    APPS.forEach(function (app) {
+      if (!links[app.key]) return;
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.className = 'order-app';
+      a.href = links[app.key];
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.innerHTML = '<span class="order-badge"></span><span class="order-text"><strong></strong><span>Delivery &amp; pickup</span></span>' +
+        '<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>';
+      a.querySelector('.order-badge').textContent = app.badge;
+      a.querySelector('strong').textContent = app.name;
+      li.appendChild(a);
+      list.appendChild(li);
+    });
+    list.hidden = !list.children.length;
+    document.getElementById('order-empty').hidden = !!list.children.length;
+  }
+  function openOrder(key) {
+    if (key && key !== current) setLoc(key, true);
+    renderOrder();
+    if (sheet && typeof sheet.showModal === 'function') {
+      if (!sheet.open) sheet.showModal();
+      document.dispatchEvent(new CustomEvent('jk:modal', { detail: true }));
+    } else {
+      document.getElementById('locations').scrollIntoView();
+    }
+  }
+  if (sheet) {
+    sheet.addEventListener('close', function () {
+      document.dispatchEvent(new CustomEvent('jk:modal', { detail: false }));
+    });
+    sheet.addEventListener('click', function (e) { if (e.target === sheet) sheet.close(); });
+    sheet.querySelector('[data-close-order]').addEventListener('click', function () { sheet.close(); });
   }
   all('[data-set-loc]').forEach(function (b) {
     b.addEventListener('click', function () { setLoc(b.dataset.setLoc, true); });
@@ -880,6 +1053,10 @@ html.lenis, html.lenis body { height: auto; }
   var saved = null;
   try { saved = localStorage.getItem(KEY); } catch (e) {}
   setLoc(saved && LOCS[saved] ? saved : 'la', false);
+  all('[data-order]').forEach(function (b) {
+    b.addEventListener('click', function () { openOrder(b.dataset.order); });
+  });
+  if (location.hash === '#order') openOrder();
 
   // Menu filter
   var chips = all('.chip');

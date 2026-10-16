@@ -39,6 +39,12 @@
     });
   }
 
+  // Hold the page still while the order sheet is open
+  document.addEventListener('jk:modal', function (e) {
+    if (!lenis) return;
+    if (e.detail) lenis.stop(); else lenis.start();
+  });
+
   var fontsReady = Promise.race([
     document.fonts ? document.fonts.ready : Promise.resolve(),
     new Promise(function (r) { setTimeout(r, 1500); })
