@@ -21,5 +21,5 @@ Animation turns off for visitors with "reduce motion" set. To remove it, delete 
 
 ## Publish
 
-Live at https://nawidpopal47.github.io/Nawid-popal/ (GitHub Pages, served from the `gh-pages` branch).
-To update the live site, push your changes to `gh-pages`. Netlify Drop also works: drag the folder onto app.netlify.com/drop.
+Offline for now: the `gh-pages` branch holds an empty site, so https://nawidpopal47.github.io/Nawid-popal/ shows a 404.
+To put it back, push this branch to `gh-pages` (`git push -f origin juicy-kabob-site:gh-pages`). Netlify Drop also works: drag the folder onto app.netlify.com/drop.
