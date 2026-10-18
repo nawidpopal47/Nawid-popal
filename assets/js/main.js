@@ -133,7 +133,7 @@
   function onScroll() {
     var y = window.scrollY || window.pageYOffset;
     if (header) header.classList.toggle('is-scrolled', y > 24);
-    if (actionBar) actionBar.classList.toggle('is-visible', page !== 'home' || y > window.innerHeight * 0.55);
+    if (actionBar) actionBar.classList.toggle('is-visible', page !== 'home' || y > 420);
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
@@ -141,6 +141,7 @@
   var toggle = $('.menu-toggle');
   var mobileMenu = $('#mobile-menu');
   function setMenu(open) {
+    if (open && mobileMenu && header) mobileMenu.style.top = Math.max(0, header.getBoundingClientRect().bottom) + 'px';
     document.body.classList.toggle('menu-open', open);
     if (toggle) {
       toggle.setAttribute('aria-expanded', String(open));
@@ -190,19 +191,193 @@
   }
 
   /* ---------------------------------------------------------------------
-     Photo slots: drop real photos into assets/photos/ and they replace the art
+     Photo slots: a labeled placeholder until assets/photos/<file> exists
      --------------------------------------------------------------------- */
-  $$('.photo[data-src]').forEach(function (fig) {
+  function loadPhoto(slot) {
+    if (slot.getAttribute('data-ready')) return;
+    slot.setAttribute('data-ready', '1');
+    var shot = slot.getAttribute('data-shot');
+    if (shot) {
+      var label = document.createElement('span');
+      label.className = 'ph-label';
+      label.innerHTML = icon('i-camera') + '<span>' + esc(shot) + '</span>';
+      slot.appendChild(label);
+    }
     var img = new Image();
     img.onload = function () {
-      img.className = 'photo-img';
-      img.alt = fig.getAttribute('data-alt') || '';
+      img.alt = slot.getAttribute('data-alt') || '';
       img.decoding = 'async';
-      fig.appendChild(img);
-      requestAnimationFrame(function () { fig.classList.add('has-photo'); });
+      slot.appendChild(img);
+      requestAnimationFrame(function () { slot.classList.add('has-photo'); });
     };
-    img.src = fig.getAttribute('data-src');
+    img.src = slot.getAttribute('data-src');
+  }
+  $$('.ph[data-src]').forEach(loadPhoto);
+
+  /* ---------------------------------------------------------------------
+     Hero slideshow
+     --------------------------------------------------------------------- */
+  var slides = $$('.hero-slide');
+  var dots = $$('.hero-dots button');
+  if (slides.length > 1) {
+    var slideIndex = 0;
+    var showSlide = function (n) {
+      slideIndex = (n + slides.length) % slides.length;
+      slides.forEach(function (s, i) { s.classList.toggle('is-active', i === slideIndex); });
+      dots.forEach(function (d, i) { d.setAttribute('aria-selected', String(i === slideIndex)); });
+    };
+    dots.forEach(function (d, i) { d.addEventListener('click', function () { showSlide(i); restart(); }); });
+    var timer = null;
+    var restart = function () {
+      if (reduceMotion) return;
+      clearInterval(timer);
+      timer = setInterval(function () { showSlide(slideIndex + 1); }, 6000);
+    };
+    restart();
+  }
+
+  /* ---------------------------------------------------------------------
+     Celebrations carousel arrows
+     --------------------------------------------------------------------- */
+  var track = $('#celebration-track');
+  $$('[data-scroll]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var card = track.firstElementChild;
+      var step = card ? card.getBoundingClientRect().width + 20 : 320;
+      track.scrollBy({ left: step * Number(btn.getAttribute('data-scroll')), behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
   });
+
+  /* ---------------------------------------------------------------------
+     Dialog helpers (tour + lightbox)
+     --------------------------------------------------------------------- */
+  function openDialog(d) {
+    if (typeof d.showModal === 'function') d.showModal(); else d.setAttribute('open', '');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDialog(d) {
+    if (typeof d.close === 'function') d.close(); else d.removeAttribute('open');
+  }
+  $$('dialog').forEach(function (d) {
+    d.addEventListener('close', function () { document.body.style.overflow = ''; });
+    d.addEventListener('click', function (e) {
+      if (e.target === d || e.target.closest('[data-close]')) closeDialog(d);
+    });
+  });
+
+  /* Lightbox ------------------------------------------------------------ */
+  var lightbox = $('#lightbox');
+  if (lightbox) {
+    var GALLERY = [
+      ['gallery-1.jpg', 'Henna night, full room'], ['gallery-2.jpg', "Couple's stage and decor"],
+      ['gallery-3.jpg', 'Kabuli palaw and kababs'], ['gallery-4.jpg', 'Dessert table'],
+      ['gallery-5.jpg', 'Dance floor'], ['gallery-6.jpg', 'Banquet setup'],
+      ['gallery-7.jpg', 'Chai service'], ['gallery-8.jpg', 'Engagement sweets']
+    ];
+    var lbIndex = 0;
+    var lbStage = $('#lb-stage');
+    var showLb = function (n) {
+      lbIndex = (n + GALLERY.length) % GALLERY.length;
+      var g = GALLERY[lbIndex];
+      lbStage.innerHTML = '';
+      var slot = document.createElement('figure');
+      slot.className = 'ph dark';
+      slot.setAttribute('data-src', 'assets/photos/' + g[0]);
+      slot.setAttribute('data-alt', g[1]);
+      slot.setAttribute('data-shot', g[1]);
+      lbStage.appendChild(slot);
+      loadPhoto(slot);
+      $('#lb-count').textContent = (lbIndex + 1) + ' / ' + GALLERY.length;
+      $('#lb-caption').textContent = g[1];
+    };
+    $$('[data-lightbox]').forEach(function (el) {
+      el.addEventListener('click', function () { showLb(Number(el.getAttribute('data-lightbox'))); openDialog(lightbox); });
+    });
+    $('.lb-prev', lightbox).addEventListener('click', function () { showLb(lbIndex - 1); });
+    $('.lb-next', lightbox).addEventListener('click', function () { showLb(lbIndex + 1); });
+    lightbox.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') showLb(lbIndex - 1);
+      if (e.key === 'ArrowRight') showLb(lbIndex + 1);
+    });
+    var touchX = null;
+    lbStage.addEventListener('touchstart', function (e) { touchX = e.touches[0].clientX; }, { passive: true });
+    lbStage.addEventListener('touchend', function (e) {
+      if (touchX === null) return;
+      var dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 40) showLb(lbIndex + (dx < 0 ? 1 : -1));
+      touchX = null;
+    });
+  }
+
+  /* Tour scheduler -------------------------------------------------------- */
+  var tourDialog = $('#tour-dialog');
+  if (tourDialog) {
+    var tourForm = $('#tour-form');
+    var daysWrap = $('#tour-days');
+    var timesWrap = $('#tour-times');
+    var TIMES = ['11:00 am', '1:00 pm', '3:00 pm', '5:00 pm', '6:30 pm', '7:30 pm'];
+    var pickedDay = null;
+    var pickedTime = null;
+    var renderChips = function () {
+      var html = '';
+      for (var i = 1; i <= 14; i++) {
+        var d = new Date();
+        d.setDate(d.getDate() + i);
+        var iso = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+        html += '<button type="button" class="day-chip" role="radio" aria-checked="false" data-day="' + iso + '">' +
+          '<small>' + d.toLocaleDateString('en-US', { weekday: 'short' }) + '</small><strong>' + d.getDate() + '</strong>' +
+          '<small>' + d.toLocaleDateString('en-US', { month: 'short' }) + '</small></button>';
+      }
+      daysWrap.innerHTML = html;
+      timesWrap.innerHTML = TIMES.map(function (t) {
+        return '<button type="button" class="time-chip" role="radio" aria-checked="false" data-time="' + t + '">' + t + '</button>';
+      }).join('');
+    };
+    var pick = function (wrap, attr, btn) {
+      $$('[' + attr + ']', wrap).forEach(function (b) { b.setAttribute('aria-checked', String(b === btn)); });
+      return btn.getAttribute(attr);
+    };
+    daysWrap.addEventListener('click', function (e) { var b = e.target.closest('[data-day]'); if (b) pickedDay = pick(daysWrap, 'data-day', b); });
+    timesWrap.addEventListener('click', function (e) { var b = e.target.closest('[data-time]'); if (b) pickedTime = pick(timesWrap, 'data-time', b); });
+
+    var openTour = function () {
+      pickedDay = pickedTime = null;
+      renderChips();
+      $('#tour-pick').hidden = false;
+      $('#tour-done').hidden = true;
+      $('.step-error', tourForm).classList.remove('is-shown');
+      openDialog(tourDialog);
+    };
+    $$('[data-tour]').forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        e.preventDefault();
+        setMenu(false);
+        openTour();
+      });
+    });
+
+    tourForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var err = $('.step-error', tourForm);
+      var name = $('#tour-name'), phone = $('#tour-phone');
+      var badName = name.value.trim().length < 2;
+      var badPhone = phone.value.replace(/\D/g, '').length < 10;
+      name.closest('.field').classList.toggle('invalid', badName);
+      phone.closest('.field').classList.toggle('invalid', badPhone);
+      if (!pickedDay || !pickedTime) {
+        err.textContent = 'Pick a day and a time for your tour.';
+        err.classList.add('is-shown');
+        return;
+      }
+      err.classList.remove('is-shown');
+      if (badName || badPhone) { (badName ? name : phone).focus(); return; }
+      $('#tour-summary').textContent = 'We have your request for ' + formatDate(pickedDay) + ' at ' + pickedTime + ', ' + name.value.trim().split(' ')[0] + '.';
+      $('#tour-pick').hidden = true;
+      $('#tour-done').hidden = false;
+    });
+
+    if (new URLSearchParams(location.search).get('tour') && page === 'home') openTour();
+  }
 
   /* ---------------------------------------------------------------------
      Accessible tabs (catering preview)
@@ -238,7 +413,7 @@
   /* ---------------------------------------------------------------------
      Floor plans
      --------------------------------------------------------------------- */
-  var C = { wall: '#17172a', floor: '#fcf9f3', table: '#c9a15b', chair: '#1d3074', stage: '#8d1f33', dance: '#e8dcc4', service: '#1d3074', sofa: '#b23a4c', text: '#6b6676' };
+  var C = { wall: '#1f1d1a', floor: '#ffffff', table: '#c9a979', chair: '#4a453f', stage: '#6e1f2c', dance: '#efe7da', service: '#4a453f', sofa: '#8c6d3f', text: '#7b746b' };
 
   function roundTable(x, y, seats, r) {
     r = r || 16;
@@ -253,7 +428,7 @@
     return '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="' + (rx || 4) + '" fill="' + fill + '" ' + (extra || '') + '/>';
   }
   function label(x, y, text, color, rotate, size) {
-    return '<text x="' + x + '" y="' + y + '" fill="' + (color || C.text) + '" font-family="Manrope, sans-serif" font-size="' + (size || 11) + '" font-weight="700" letter-spacing="1.5" text-anchor="middle"' +
+    return '<text x="' + x + '" y="' + y + '" fill="' + (color || C.text) + '" font-family="Jost, sans-serif" font-size="' + (size || 11) + '" font-weight="700" letter-spacing="1.5" text-anchor="middle"' +
       (rotate ? ' transform="rotate(' + rotate + ' ' + x + ' ' + y + ')"' : '') + '>' + text.toUpperCase() + '</text>';
   }
   function dance(x, y, w, h) {
@@ -281,7 +456,7 @@
         [[70, 110], [150, 110], [70, 185], [150, 185], [70, 260], [150, 260], [70, 340], [150, 340],
          [480, 110], [480, 185], [480, 260], [480, 340], [228 + 22, 330], [412 - 22, 330]].forEach(function (p) { s += roundTable(p[0], p[1], 10); });
         s += roundTable(545, 150, 10);
-        s += rect(530, 230, 34, 120, '#e4ca93', 4) + label(547, 290, 'Sweets', C.wall, 90, 9);
+        s += rect(530, 230, 34, 120, '#e6ddd0', 4) + label(547, 290, 'Sweets', C.wall, 90, 9);
         return s;
       }
     },
@@ -296,8 +471,8 @@
         s += dance(240, 110, 160, 120);
         for (var i = 0; i < 5; i++) {
           var y = 70 + i * 66;
-          s += rect(22, y, 22, 54, C.sofa, 8) + rect(50, y + 16, 12, 22, '#e4ca93', 3);
-          s += rect(596, y, 22, 54, C.sofa, 8) + rect(578, y + 16, 12, 22, '#e4ca93', 3);
+          s += rect(22, y, 22, 54, C.sofa, 8) + rect(50, y + 16, 12, 22, '#e6ddd0', 3);
+          s += rect(596, y, 22, 54, C.sofa, 8) + rect(578, y + 16, 12, 22, '#e6ddd0', 3);
         }
         s += rect(70, 380, 100, 20, C.sofa, 8) + rect(180, 380, 95, 20, C.sofa, 8);
         s += rect(365, 380, 95, 20, C.sofa, 8) + rect(470, 380, 100, 20, C.sofa, 8);
@@ -319,7 +494,7 @@
           }
         }
         s += '<path d="M320 96 V392" stroke="' + C.stage + '" stroke-width="1.5" stroke-dasharray="4 5"/>';
-        s += rect(34, 300, 60, 90, '#e4ca93', 6) + label(64, 350, 'Sweets', C.wall, 90, 9);
+        s += rect(34, 300, 60, 90, '#e6ddd0', 6) + label(64, 350, 'Sweets', C.wall, 90, 9);
         s += rect(570, 120, 40, 150, C.service, 6) + label(590, 195, 'Chai', '#fff', 90, 10);
         return s;
       }
@@ -333,7 +508,7 @@
         s += rect(26, 90, 22, 250, C.service, 4) + label(37, 215, 'Buffet', '#fff', 90, 10);
         s += rect(560, 120, 50, 26, C.service, 5) + label(585, 137, 'Chai', '#fff', 0, 9);
         [[90, 100], [90, 300], [530, 300]].forEach(function (p) {
-          s += rect(p[0], p[1], 64, 18, C.sofa, 7) + rect(p[0], p[1] + 46, 64, 18, C.sofa, 7) + rect(p[0] + 18, p[1] + 24, 28, 16, '#e4ca93', 3);
+          s += rect(p[0], p[1], 64, 18, C.sofa, 7) + rect(p[0], p[1] + 46, 64, 18, C.sofa, 7) + rect(p[0] + 18, p[1] + 24, 28, 16, '#e6ddd0', 3);
         });
         [[200, 110], [270, 140], [370, 140], [440, 110], [500, 180], [200, 200], [320, 210], [440, 230],
          [250, 280], [390, 290], [180, 360], [470, 360], [320, 330], [500, 250]].forEach(function (p) {
@@ -352,7 +527,7 @@
       $('#layout-cap').textContent = L.cap;
       $('#layout-cap-label').textContent = L.capLabel;
       $('#layout-desc').textContent = L.desc;
-      $('#layout-best').innerHTML = '<span class="tag">Best for</span>' + L.best.map(function (b) { return '<span class="tag">' + b + '</span>'; }).join('');
+      $('#layout-best').innerHTML = '<span class="chip label">Best for</span>' + L.best.map(function (b) { return '<span class="chip">' + b + '</span>'; }).join('');
       planWrap.style.opacity = '0';
       setTimeout(function () {
         planWrap.innerHTML = shell(L.draw());
@@ -390,12 +565,12 @@
     menuRoot.innerHTML = MENU.map(function (sec) {
       return '<section class="menu-section" id="' + sec.id + '" aria-labelledby="h-' + sec.id + '">' +
         '<div class="container">' +
-        '<div class="menu-section-head reveal is-in"><div><span class="ar" lang="fa">' + sec.ar + '</span><h2 id="h-' + sec.id + '">' + esc(sec.title) + '</h2></div><p class="lede">' + esc(sec.blurb) + '</p></div>' +
+        '<div class="menu-section-head"><span class="ar" lang="fa">' + sec.ar + '</span><h2 id="h-' + sec.id + '">' + esc(sec.title) + '</h2><p>' + esc(sec.blurb) + '</p></div>' +
         '<div class="menu-grid">' + sec.items.map(function (d) {
           return '<article class="menu-item" data-dish="' + d.id + '">' +
             '<div class="dish-top"><h4>' + esc(d.name) + '</h4><span class="leader"></span>' + tagsHTML(d.tags) + '</div>' +
             '<p>' + esc(d.desc) + '</p>' +
-            '<div class="menu-item-foot"><span class="help" style="font-size:13px;color:var(--muted)">Priced per guest</span>' +
+            '<div class="menu-item-foot">' +
             '<button type="button" class="add-btn" aria-pressed="false" data-add="' + d.id + '">' + icon('i-plus') + '<span>Add to menu</span></button></div>' +
             '</article>';
         }).join('') + '</div></div></section>';
@@ -410,7 +585,7 @@
         btn.closest('.menu-item').classList.toggle('is-added', on);
       });
       $('#tray-count').textContent = tray.length;
-      $('#tray-label').textContent = tray.length === 1 ? 'dish in your event menu' : 'dishes in your event menu';
+      $('#tray-label').textContent = tray.length === 1 ? 'dish selected' : 'dishes selected';
       trayEl.classList.toggle('is-visible', tray.length > 0);
     };
     menuRoot.addEventListener('click', function (e) {
@@ -514,12 +689,12 @@
     function renderDishes() {
       var wrap = $('#selected-dishes');
       if (!tray.length) {
-        wrap.innerHTML = '<p class="help" style="color:var(--muted);font-size:14px">No dishes picked yet. <a href="menu.html">Browse the menu</a> and tap "Add to menu", or leave it to our chef.</p>';
+        wrap.innerHTML = '<p style="color:var(--muted);font-size:14.5px">No dishes picked yet. <a href="menu.html">Browse the menu</a> and tap "Add to menu", or leave it to our chef.</p>';
         return;
       }
       wrap.innerHTML = '<div class="selected-dishes">' + tray.map(function (id) {
-        return '<span class="tag">' + esc(DISH_INDEX[id].name) + '</span>';
-      }).join('') + '</div><p style="margin-top:10px;font-size:13.5px"><a href="menu.html">Edit your menu</a></p>';
+        return '<span class="chip">' + esc(DISH_INDEX[id].name) + '</span>';
+      }).join('') + '</div><p style="margin-top:4px;font-size:14px"><a href="menu.html">Edit your menu</a></p>';
     }
     renderDishes();
 
