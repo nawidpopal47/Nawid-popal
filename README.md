@@ -21,33 +21,21 @@ Every page has a "Schedule a Tour" sheet where guests pick a day and time.
 3. Pick the branch with this site and the `/ (root)` folder, then save.
 4. The site goes live at `https://nawidpopal47.github.io/Nawid-popal/` within a minute or two.
 
-## Adding photos
+## Photos
 
-Each photo slot shows a label with the shot that belongs there. Add a JPG to `assets/photos/` with the matching name and it replaces the label on its own, with no code changes. Landscape photos about 2000px wide work best.
+The site ships with stand-in photos from the [Open Images](https://storage.googleapis.com/openimages/web/index.html) dataset. Their photographers shared them on Flickr under [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/), and `credits.html` credits each one, as the license requires.
+
+To use real Majlis photos, replace the file in `assets/photos/` with the same name. Landscape photos about 2000px wide work best. When every stand-in is replaced, delete `credits.html` and the "Photo credits" line in the footer.
 
 | File | Shot |
 | --- | --- |
 | `hero-1.jpg` | Wide shot of the hall, set for an event |
-| `hero-2.jpg` | Henna night stage with the couple |
-| `hero-3.jpg` | Afghan food spread: palaw, kababs, mantu |
+| `hero-2.jpg` | Henna night |
+| `hero-3.jpg` | Afghan food spread |
 | `intro-1.jpg` | Hall interior, tall shot |
 | `intro-2.jpg` | Table setting detail |
-| `gallery-1.jpg` | Henna night, full room |
-| `gallery-2.jpg` | Couple's stage and decor |
-| `gallery-3.jpg` | Kabuli palaw and kababs |
-| `gallery-4.jpg` | Dessert table |
-| `gallery-5.jpg` | Dance floor |
-| `gallery-6.jpg` | Banquet setup |
-| `gallery-7.jpg` | Chai service |
-| `gallery-8.jpg` | Engagement sweets |
-| `event-henna.jpg` | Henna night |
-| `event-engagement.jpg` | Engagement / shirini khori |
-| `event-nikkah.jpg` | Nikkah ceremony |
-| `event-wedding.jpg` | Wedding reception |
-| `event-aqiqa.jpg` | Aqiqa / baby shower |
-| `event-birthday.jpg` | Birthday or graduation |
-| `event-eid.jpg` | Eid dinner or iftar |
-| `event-community.jpg` | Community or corporate dinner |
+| `gallery-1.jpg` to `gallery-8.jpg` | Banquet setup, henna, palaw, centerpieces, dance floor, rice and kabab, chai service, table settings |
+| `event-*.jpg` | One per celebration card: henna, engagement, nikkah, wedding, aqiqa, birthday, eid, community |
 | `catering-1.jpg` | Close-up of Kabuli palaw or mantu |
 | `cta.jpg` | Evening shot of the hall, lights on |
 

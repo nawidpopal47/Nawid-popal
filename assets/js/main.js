@@ -269,10 +269,10 @@
   var lightbox = $('#lightbox');
   if (lightbox) {
     var GALLERY = [
-      ['gallery-1.jpg', 'Henna night, full room'], ['gallery-2.jpg', "Couple's stage and decor"],
-      ['gallery-3.jpg', 'Kabuli palaw and kababs'], ['gallery-4.jpg', 'Dessert table'],
-      ['gallery-5.jpg', 'Dance floor'], ['gallery-6.jpg', 'Banquet setup'],
-      ['gallery-7.jpg', 'Chai service'], ['gallery-8.jpg', 'Engagement sweets']
+      ['gallery-1.jpg', 'Banquet setup'], ['gallery-2.jpg', 'Henna'],
+      ['gallery-3.jpg', 'Palaw with almonds'], ['gallery-4.jpg', 'Centerpieces'],
+      ['gallery-5.jpg', 'Dance floor'], ['gallery-6.jpg', 'Rice and seekh kabab'],
+      ['gallery-7.jpg', 'Chai service'], ['gallery-8.jpg', 'Table settings']
     ];
     var lbIndex = 0;
     var lbStage = $('#lb-stage');
