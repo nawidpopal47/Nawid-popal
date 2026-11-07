@@ -1,6 +1,6 @@
 # Lions Mane
 
-Prototype website for Lions Mane, a Bay Area barbershop.
+Prototype website for Lions Mane, a Bay Area barbershop. 90s Bay theme: Win95 windows, cassette menu, VHS wall, trading-card crew, pager booking.
 
 - `index.html`: open in any browser, no build step.
 - `page.html`: same page without the document wrapper (used for the hosted preview).
